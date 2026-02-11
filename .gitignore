@@ -1,0 +1,31 @@
+﻿# Local work logs (never commit)
+.codex/
+
+# References and local artifacts must not be committed
+references/
+
+# Papers / snapshots (public repo should not ship them)
+**/*.pdf
+**/*.html
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.tif
+**/*.tiff
+**/*.svg
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+*.log
+
+# NDA-only local docs (do not commit to public repo)
+docs/_confidential_DO_NOT_SHARE/
+
+
+# Archived nonconfidential drafts (kept local by default)
+docs/nonconfidential/archive/
+
+
