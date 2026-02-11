@@ -43,12 +43,13 @@ jobs:
         run: |
           set -euo pipefail
 
-          files=$(git ls-files)
+          # Scan only public-facing content files; exclude workflow definitions
+          files=$(git ls-files | grep -v '^\\.github/' || true)
 
           # 1) Windows absolute paths + OneDrive keyword
-          if echo "${files}" | xargs -r grep -nE '[A-Za-z]:\\|[A-Za-z]:/' >/dev/null 2>&1; then
+          if echo "${files}" | xargs -r grep -nE '[A-Za-z]:\\|[A-Za-z]:/[^/]' >/dev/null 2>&1; then
             echo "Detected potential absolute paths (e.g., C:\\... or C:/...):"
-            echo "${files}" | xargs -r grep -nE '[A-Za-z]:\\|[A-Za-z]:/' || true
+            echo "${files}" | xargs -r grep -nE '[A-Za-z]:\\|[A-Za-z]:/[^/]' || true
             exit 1
           fi
           if echo "${files}" | xargs -r grep -n "OneDrive" >/dev/null 2>&1; then
