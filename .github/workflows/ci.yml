@@ -1,0 +1,73 @@
+﻿name: Public Repo CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Ensure no forbidden tracked files
+        shell: bash
+        run: |
+          set -euo pipefail
+          bad=$(git ls-files | grep -Ei '\\.(pdf|html|png|jpe?g|tiff?|svg|docx|pptx|xlsx)$' || true)
+          if [ -n "${bad}" ]; then
+            echo "Forbidden tracked files detected:"
+            echo "${bad}"
+            exit 1
+          fi
+
+      - name: Ensure no forbidden tracked paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          bad=$(git ls-files | grep -E '^(\\.codex/|references/|docs/nonconfidential/archive/)' || true)
+          if [ -n "${bad}" ]; then
+            echo "Forbidden tracked paths detected:"
+            echo "${bad}"
+            exit 1
+          fi
+
+      - name: Scan for path leaks, tool/model names, and obvious secrets
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # Scan only public-facing content files; exclude workflow definitions
+          files=$(git ls-files | grep -v '^\.github/' || true)
+
+          # 1) Windows absolute paths + OneDrive keyword
+          if echo "${files}" | xargs -r grep -nE '[A-Za-z]:\\|[A-Za-z]:/[^/]' >/dev/null 2>&1; then
+            echo "Detected potential absolute paths (e.g., C:\\... or C:/...):"
+            echo "${files}" | xargs -r grep -nE '[A-Za-z]:\\|[A-Za-z]:/[^/]' || true
+            exit 1
+          fi
+          if echo "${files}" | xargs -r grep -n "OneDrive" >/dev/null 2>&1; then
+            echo "Detected 'OneDrive' keyword in tracked files:"
+            echo "${files}" | xargs -r grep -n "OneDrive" || true
+            exit 1
+          fi
+
+          # 2) LLM/tool vendor names (must not appear in public content)
+          if echo "${files}" | xargs -r grep -nE 'Claude|ChatGPT|Perplexity' >/dev/null 2>&1; then
+            echo "Detected LLM/tool vendor names in tracked files:"
+            echo "${files}" | xargs -r grep -nE 'Claude|ChatGPT|Perplexity' || true
+            exit 1
+          fi
+
+          # 3) Obvious token patterns
+          if echo "${files}" | xargs -r grep -nE 'gho_|ghp_|github_pat_|xox[baprs]-|AIza[0-9A-Za-z_-]{20,}|sk-[0-9A-Za-z]{20,}' >/dev/null 2>&1; then
+            echo "Detected potential secrets/token patterns in tracked files:"
+            echo "${files}" | xargs -r grep -nE 'gho_|ghp_|github_pat_|xox[baprs]-|AIza[0-9A-Za-z_-]{20,}|sk-[0-9A-Za-z]{20,}' || true
+            exit 1
+          fi
