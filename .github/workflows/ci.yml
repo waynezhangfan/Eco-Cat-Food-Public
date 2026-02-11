@@ -44,7 +44,7 @@ jobs:
           set -euo pipefail
 
           # Scan only public-facing content files; exclude workflow definitions
-          files=$(git ls-files | grep -v '^\\.github/' || true)
+          files=$(git ls-files | grep -v '^\.github/' || true)
 
           # 1) Windows absolute paths + OneDrive keyword
           if echo "${files}" | xargs -r grep -nE '[A-Za-z]:\\|[A-Za-z]:/[^/]' >/dev/null 2>&1; then
