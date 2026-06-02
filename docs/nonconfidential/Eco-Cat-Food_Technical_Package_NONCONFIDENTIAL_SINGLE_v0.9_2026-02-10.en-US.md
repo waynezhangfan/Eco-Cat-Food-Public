@@ -2,13 +2,16 @@
 
 > Language: English | 中文：[`Eco-Cat-Food_Technical_Package_NONCONFIDENTIAL_SINGLE_v0.9_2026-02-10.zh-CN.md`](Eco-Cat-Food_Technical_Package_NONCONFIDENTIAL_SINGLE_v0.9_2026-02-10.zh-CN.md)
 
+> **SUPERSEDED / HISTORICAL — 2026-05-30 status update**
+> This v0.9 package reflects the historical FSHR small-molecule route as of 2026-02-10. That route has since been retired as a Gate 0.5 No-Start. This document is retained for transparency and auditability, but it does not represent the current active development path and should not be shared as the current project technical package. See the [current public status](../STATUS_UPDATE_2026-05-30.md).
+
 Version: v0.9‑EN
 
 Date: 2026-02-10
 
-Audience: Technical due diligence / research collaborators (technical teams / investor technical advisors)
+Original audience: Technical due diligence / research collaborators (technical teams / investor technical advisors)
 
-Confidentiality: **NON‑CONFIDENTIAL — Shareable externally**
+Current status: **NON-CONFIDENTIAL HISTORICAL PACKAGE — superseded; not the current technical package**
 
 Contact: [Wayne Zhang](https://www.linkedin.com/in/waynezhangfan)
 

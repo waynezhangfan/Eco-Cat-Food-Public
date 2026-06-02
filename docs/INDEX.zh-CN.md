@@ -7,16 +7,21 @@
 - 证据等级与引用口径
 - 精简的参考文献元数据列表（DOI/标题等）
 
-## 文档
-- `PROGRESS.zh-CN.md` — 阶段定义与当前状态
-- `ROADMAP.zh-CN.md` — 下一步里程碑（高层）
-- `PUBLIC_SCOPE.zh-CN.md` — 公开版包含/排除范围
-- `EVIDENCE_POLICY.zh-CN.md` — 证据等级与引用规则
-- `REFERENCES.tsv` / `REFERENCES.csv` — 文献元数据（不含全文）
-- `UPDATING.zh-CN.md` — 公开库如何更新
-- `SHARING.zh-CN.md` — 对外分享指南（何可分享/何不可）
+## 建议从这里开始
+- [当前公开状态](STATUS_UPDATE_2026-05-30.zh-CN.md) — 当前公开状态与披露边界
 
-## 投资人 / 合作方材料（非保密）
-- `nonconfidential/00-PACKAGE_INDEX.NC.zh-CN.md` — 可分享的非保密技术包（英文默认 + 中文链接）
+## 当前公开文档
+- [进度](PROGRESS.zh-CN.md) — 阶段定义与当前状态
+- [路线图](ROADMAP.zh-CN.md) — 下一步里程碑（高层）
+- [公开披露范围](PUBLIC_SCOPE.zh-CN.md) — 公开版包含/排除范围
+- [证据政策](EVIDENCE_POLICY.zh-CN.md) — 证据等级与引用规则
+- [参考文献元数据](REFERENCES.tsv) / [CSV 视图](REFERENCES.csv) — 文献元数据（不含全文）
+- [公开库更新规则](UPDATING.zh-CN.md) — 公开库如何更新
+- [对外分享指南](SHARING.zh-CN.md) — 对外分享指南（何可分享/何不可）
+
+## 历史 / 已取代材料
+此前的 FSHR‑TMD 路线不再是当前正在推进的技术路径。
+
+- [历史非保密包索引](nonconfidential/00-PACKAGE_INDEX.NC.zh-CN.md) — 仅用于审计或历史复盘
 
 > 备注：`docs/_confidential_DO_NOT_SHARE/` 用于未来 NDA 版本草稿（如存在），会被 `.gitignore` 排除，不会进入公开提交。
