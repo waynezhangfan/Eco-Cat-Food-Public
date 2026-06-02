@@ -2,13 +2,16 @@
 
 > 语言：中文 | English: [`Eco-Cat-Food_Technical_Package_NONCONFIDENTIAL_SINGLE_v0.9_2026-02-10.en-US.md`](Eco-Cat-Food_Technical_Package_NONCONFIDENTIAL_SINGLE_v0.9_2026-02-10.en-US.md)
 
+> **已取代 / 历史材料 — 2026-05-30 状态更新**
+> 这个 v0.9 技术包反映的是 2026-02-10 时的历史 FSHR 小分子路线。该路线现已在 Gate 0.5 判定为 No-Start。本文件保留用于透明度和审计，但不代表当前正在推进的技术路径，也不应作为项目当前技术包继续分享。详见[当前公开状态](../STATUS_UPDATE_2026-05-30.zh-CN.md)。
+
 版本：v0.9‑ZH
 
 日期：2026-02-10
 
-受众：技术尽调/科研合作方（技术团队 / 投资方技术顾问）
+原始受众：技术尽调/科研合作方（技术团队 / 投资方技术顾问）
 
-保密级别：**非保密（NON‑CONFIDENTIAL）— 可对外分享**
+当前状态：**非保密历史包 — 已取代；不是当前技术包**
 
 联系人：[Wayne Zhang](https://www.linkedin.com/in/waynezhangfan)
 
